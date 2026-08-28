@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ITE College West - Best Student Nomination Portal</title>
+  <link rel="icon" type="image/png" href="logo.png">
   <meta name="description" content="Official Best Student Nomination System for ITE College West. Recognizing excellence in academics, leadership, technical skill, and community impact.">
   <style>
     /* ==========================================================================
@@ -99,19 +100,20 @@
       color: inherit;
     }
 
-    .brand-logo-shield {
-      width: 44px;
+    .brand-logo-img {
       height: 44px;
-      background: linear-gradient(135deg, var(--ite-red) 0%, #b71c1c 100%);
+      width: auto;
+      max-width: 95px;
       border-radius: var(--radius-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 8px rgba(211, 47, 47, 0.4);
-      color: white;
-      font-weight: 800;
-      font-size: 1.1rem;
-      letter-spacing: -0.5px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+      object-fit: cover;
+      display: block;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.2s ease;
+    }
+
+    .brand-logo-img:hover {
+      transform: scale(1.04);
     }
 
     .brand-info h1 {
@@ -1306,7 +1308,7 @@
   <header class="top-navbar">
     <div class="nav-container">
       <div class="brand-wrapper">
-        <div class="brand-logo-shield" title="Institute of Technical Education">ITE</div>
+        <img src="logo.png" alt="Logo" class="brand-logo-img" title="Oxford" />
         <div class="brand-info">
           <h1>ITE College West <span class="campus-pill">Choa Chu Kang</span></h1>
           <span class="sub-badge">Best Student Nomination Portal • AY2026/2027</span>
