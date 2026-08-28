@@ -1,0 +1,3190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ITE College West - Best Student Nomination Portal</title>
+  <meta name="description" content="Official Best Student Nomination System for ITE College West. Recognizing excellence in academics, leadership, technical skill, and community impact.">
+  <style>
+    /* ==========================================================================
+       ITE College West - Best Student Nomination System Stylesheet
+       Theme: Institutional Excellence, Contemporary Navy & Accent Palette
+       ========================================================================== */
+    :root {
+      --primary: #0a2540;
+      --primary-light: #163e69;
+      --primary-dark: #061729;
+      --ite-red: #d32f2f;
+      --ite-red-hover: #b71c1c;
+      --ite-gold: #f59e0b;
+      --ite-gold-soft: #fef3c7;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      
+      --success: #10b981;
+      --success-bg: #ecfdf5;
+      --warning: #f59e0b;
+      --warning-bg: #fffbeb;
+      --danger: #ef4444;
+      --danger-bg: #fef2f2;
+      --info: #0ea5e9;
+      --info-bg: #f0f9ff;
+      
+      --bg-page: #f4f6f9;
+      --bg-card: #ffffff;
+      --bg-input: #ffffff;
+      --border: #e2e8f0;
+      --border-focus: #2563eb;
+      
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --text-subtle: #94a3b8;
+      --text-inverse: #ffffff;
+
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+      
+      --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Navigation Bar */
+    .top-navbar {
+      background: var(--primary);
+      color: var(--text-inverse);
+      box-shadow: var(--shadow-md);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .brand-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-logo-shield {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--ite-red) 0%, #b71c1c 100%);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(211, 47, 47, 0.4);
+      color: white;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-info h1 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      line-height: 1.2;
+    }
+
+    .brand-info .sub-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #cbd5e1;
+      font-weight: 500;
+    }
+
+    .campus-pill {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 0.15rem 0.5rem;
+      border-radius: var(--radius-full);
+      color: #fed7aa;
+      font-size: 0.72rem;
+      font-weight: 600;
+      margin-left: 0.35rem;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .nav-tab-btn {
+      background: transparent;
+      color: #cbd5e1;
+      border: 1px solid transparent;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition);
+    }
+
+    .nav-tab-btn:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-tab-btn.active {
+      background: var(--ite-red);
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(211, 47, 47, 0.3);
+    }
+
+    .badge-count {
+      background: rgba(255, 255, 255, 0.25);
+      color: white;
+      padding: 0.1rem 0.45rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+    }
+
+    /* Banner / Header Hero */
+    .hero-banner {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, #1e3a5f 100%);
+      color: white;
+      padding: 2rem 1.5rem;
+      border-bottom: 3px solid var(--ite-red);
+    }
+
+    .hero-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .hero-text h2 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-text p {
+      color: #cbd5e1;
+      font-size: 0.98rem;
+      max-width: 720px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .hero-stat-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      padding: 0.85rem 1.25rem;
+      border-radius: var(--radius-md);
+      text-align: center;
+      min-width: 110px;
+    }
+
+    .hero-stat-card .stat-number {
+      display: block;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #fed7aa;
+    }
+
+    .hero-stat-card .stat-label {
+      font-size: 0.75rem;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+
+    /* Main Container */
+    .main-content {
+      max-width: 1280px;
+      width: 100%;
+      margin: 1.75rem auto;
+      padding: 0 1.5rem;
+      flex: 1;
+    }
+
+    /* View Sections */
+    .view-section {
+      display: none;
+      animation: fadeIn 0.25s ease-in-out;
+    }
+
+    .view-section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Stepper Layout */
+    .nomination-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 1.75rem;
+      align-items: start;
+    }
+
+    @media (max-width: 992px) {
+      .nomination-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .stepper-container {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+    }
+
+    .stepper-nav {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .stepper-nav::before {
+      content: '';
+      position: absolute;
+      top: 18px;
+      left: 35px;
+      right: 35px;
+      height: 3px;
+      background: var(--border);
+      z-index: 1;
+    }
+
+    .step-item {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 0;
+      width: 95px;
+      text-align: center;
+    }
+
+    .step-bubble {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-full);
+      background: var(--bg-card);
+      border: 3px solid var(--border);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.92rem;
+      transition: var(--transition);
+    }
+
+    .step-name {
+      margin-top: 0.45rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+
+    .step-item.active .step-bubble {
+      border-color: var(--ite-red);
+      background: var(--ite-red);
+      color: white;
+      box-shadow: 0 0 0 4px rgba(211, 47, 47, 0.2);
+    }
+
+    .step-item.active .step-name {
+      color: var(--ite-red);
+      font-weight: 700;
+    }
+
+    .step-item.completed .step-bubble {
+      border-color: var(--success);
+      background: var(--success);
+      color: white;
+    }
+
+    .step-item.completed .step-name {
+      color: var(--success);
+    }
+
+    /* Form Card */
+    .form-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    .form-header-bar {
+      padding: 1.25rem 1.75rem;
+      border-bottom: 1px solid var(--border);
+      background: #fafbfe;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .form-header-bar h3 {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .form-header-bar p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .form-body {
+      padding: 1.75rem;
+    }
+
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .form-row-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    @media (max-width: 640px) {
+      .form-row-2, .form-row-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+      position: relative;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 0.35rem;
+    }
+
+    .form-label .req {
+      color: var(--danger);
+      margin-left: 2px;
+    }
+
+    .form-label .helper-tag {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-left: 0.4rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      font-size: 0.92rem;
+      color: var(--text-main);
+      background-color: var(--bg-input);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+      outline: none;
+      font-family: inherit;
+    }
+
+    .form-control:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+
+    .form-control.is-invalid {
+      border-color: var(--danger);
+      background-color: #fffbfa;
+    }
+
+    .invalid-feedback {
+      font-size: 0.76rem;
+      color: var(--danger);
+      margin-top: 0.3rem;
+      display: none;
+    }
+
+    .form-control.is-invalid + .invalid-feedback {
+      display: block;
+    }
+
+    textarea.form-control {
+      min-height: 105px;
+      resize: vertical;
+    }
+
+    .char-counter {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-align: right;
+      margin-top: 0.25rem;
+    }
+
+    /* Category Card Picker */
+    .category-selection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .category-radio-card {
+      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      background: white;
+    }
+
+    .category-radio-card:hover {
+      border-color: #cbd5e1;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .category-radio-card input[type="radio"] {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      accent-color: var(--ite-red);
+      transform: scale(1.15);
+    }
+
+    .category-radio-card.selected {
+      border-color: var(--ite-red);
+      background-color: #fff9f9;
+      box-shadow: 0 0 0 1px var(--ite-red);
+    }
+
+    .category-title {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.35rem;
+      padding-right: 1.5rem;
+    }
+
+    .category-desc {
+      font-size: 0.81rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .category-badge-rec {
+      display: inline-block;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      background: var(--ite-gold-soft);
+      color: #92400e;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 700;
+      margin-top: 0.6rem;
+    }
+
+    /* Checkbox pills for achievements */
+    .checkbox-pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 0.4rem;
+    }
+
+    .checkbox-pill {
+      position: relative;
+    }
+
+    .checkbox-pill input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .checkbox-pill label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 0.9rem;
+      background: #f1f5f9;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: var(--transition);
+      user-select: none;
+    }
+
+    .checkbox-pill input[type="checkbox"]:checked + label {
+      background: #eff6ff;
+      border-color: var(--accent);
+      color: var(--accent);
+      font-weight: 600;
+      box-shadow: 0 1px 3px rgba(37, 99, 235, 0.15);
+    }
+
+    /* Live Sidebar Score & Summary */
+    .sidebar-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      padding: 1.5rem;
+      position: sticky;
+      top: 85px;
+    }
+
+    .sidebar-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .holistic-score-meter {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1rem;
+      text-align: center;
+      border: 1px solid var(--border);
+      margin-bottom: 1.25rem;
+    }
+
+    .score-circle {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      background: white;
+      margin: 0 auto 0.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 4px solid var(--ite-red);
+      box-shadow: 0 4px 10px rgba(211, 47, 47, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .score-number {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .score-max {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .score-tier-label {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--ite-red);
+      letter-spacing: 0.3px;
+    }
+
+    .score-breakdown-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .score-bar-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .score-bar-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .score-progress-track {
+      height: 6px;
+      background: #e2e8f0;
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+
+    .score-progress-fill {
+      height: 100%;
+      border-radius: var(--radius-full);
+      transition: width 0.4s ease;
+    }
+
+    .fill-acad { background: var(--accent); }
+    .fill-cca { background: var(--success); }
+    .fill-lead { background: var(--ite-gold); }
+    .fill-char { background: var(--ite-red); }
+
+    .sidebar-live-preview {
+      background: #f8fafc;
+      border-radius: var(--radius-md);
+      padding: 0.95rem;
+      font-size: 0.82rem;
+    }
+
+    .preview-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.35rem 0;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .preview-row:last-child {
+      border-bottom: none;
+    }
+
+    .preview-label {
+      color: var(--text-muted);
+    }
+
+    .preview-val {
+      font-weight: 600;
+      color: var(--text-main);
+      max-width: 140px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    /* Stepper Button Footer */
+    .stepper-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.75rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.4rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1px solid transparent;
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--text-main);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-light);
+    }
+
+    .btn-danger {
+      background: var(--ite-red);
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background: var(--ite-red-hover);
+      box-shadow: 0 4px 12px rgba(211, 47, 47, 0.25);
+    }
+
+    .btn-outline-danger {
+      background: transparent;
+      color: var(--ite-red);
+      border-color: var(--ite-red);
+    }
+
+    .btn-outline-danger:hover {
+      background: #fef2f2;
+    }
+
+    .btn-sm {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.82rem;
+    }
+
+    /* Review Summary Card in Step 5 */
+    .review-dossier {
+      background: #fafbfe;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .dossier-section {
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dossier-section:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .dossier-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .dossier-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.85rem;
+    }
+
+    .dossier-item .d-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .dossier-item .d-value {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .declaration-box {
+      background: #fffbeb;
+      border: 1px solid #fef3c7;
+      border-left: 4px solid var(--warning);
+      padding: 1.1rem;
+      border-radius: var(--radius-md);
+      font-size: 0.85rem;
+      color: #92400e;
+      margin-bottom: 1.25rem;
+    }
+
+    .declaration-checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    /* Dashboard Controls */
+    .dashboard-controls {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      flex: 1;
+    }
+
+    .search-input-wrapper {
+      position: relative;
+      min-width: 240px;
+      flex: 1;
+    }
+
+    .search-input-wrapper svg {
+      position: absolute;
+      left: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+    }
+
+    .search-input-wrapper input {
+      padding-left: 2.25rem;
+    }
+
+    .table-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .nomination-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.88rem;
+    }
+
+    .nomination-table th {
+      background: #f8fafc;
+      color: var(--text-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      letter-spacing: 0.5px;
+      padding: 0.85rem 1.25rem;
+      border-bottom: 1.5px solid var(--border);
+    }
+
+    .nomination-table td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    .nomination-table tr:hover td {
+      background-color: #fafbfc;
+    }
+
+    .student-cell {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .student-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-full);
+      background: #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: var(--primary);
+    }
+
+    .student-name {
+      font-weight: 700;
+      color: var(--primary);
+      display: block;
+    }
+
+    .student-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius-full);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .status-shortlisted {
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    .status-pending {
+      background: #fef9c3;
+      color: #a16207;
+    }
+
+    .status-endorsed {
+      background: #e0e7ff;
+      color: #4338ca;
+    }
+
+    .school-tag {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .school-seit { background: #dbeafe; color: #1e40af; }
+    .school-sbs  { background: #fef3c7; color: #92400e; }
+    .school-engg { background: #e0e7ff; color: #3730a3; }
+    .school-soh  { background: #fee2e2; color: #991b1b; }
+
+    .table-actions {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .table-action-btn {
+      background: #f1f5f9;
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 0.35rem 0.65rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .table-action-btn:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .table-action-btn.delete-btn:hover {
+      background: var(--danger);
+      border-color: var(--danger);
+    }
+
+    .empty-state {
+      padding: 3rem 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    .empty-state svg {
+      width: 48px;
+      height: 48px;
+      stroke: var(--text-subtle);
+      margin-bottom: 0.75rem;
+    }
+
+    /* Guidelines Tab View */
+    .guidelines-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .guide-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .guide-card h4 {
+      font-size: 1.1rem;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .guide-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      color: var(--text-main);
+    }
+
+    .guide-list li {
+      position: relative;
+      padding-left: 1.25rem;
+    }
+
+    .guide-list li::before {
+      content: '✔';
+      position: absolute;
+      left: 0;
+      color: var(--ite-red);
+      font-weight: bold;
+    }
+
+    /* Modal Dossier View */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
+    }
+
+    .modal-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-dialog {
+      background: white;
+      border-radius: var(--radius-lg);
+      max-width: 760px;
+      width: 100%;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-xl);
+      transform: translateY(20px);
+      transition: transform 0.25s ease;
+      overflow: hidden;
+    }
+
+    .modal-backdrop.active .modal-dialog {
+      transform: translateY(0);
+    }
+
+    .modal-header {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f8fafc;
+    }
+
+    .modal-header h3 {
+      font-size: 1.15rem;
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .modal-close-btn {
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-sm);
+    }
+
+    .modal-close-btn:hover {
+      background: #e2e8f0;
+      color: var(--text-main);
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .modal-footer {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid var(--border);
+      background: #f8fafc;
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+    }
+
+    /* Toast Notifications */
+    .toast-container {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 1050;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .toast {
+      background: white;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      border-left: 4px solid var(--accent);
+      animation: slideToast 0.3s ease;
+      min-width: 280px;
+    }
+
+    .toast.toast-success { border-left-color: var(--success); }
+    .toast.toast-danger { border-left-color: var(--danger); }
+    .toast.toast-info { border-left-color: var(--info); }
+
+    @keyframes slideToast {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    /* Footer */
+    .app-footer {
+      background: white;
+      border-top: 1px solid var(--border);
+      padding: 1.25rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: auto;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: white !important;
+        color: black !important;
+      }
+
+      .top-navbar,
+      .hero-banner,
+      .stepper-container,
+      .stepper-actions,
+      .dashboard-controls,
+      .table-actions,
+      .modal-footer,
+      .modal-close-btn,
+      .toast-container,
+      .app-footer,
+      .no-print {
+        display: none !important;
+      }
+
+      .main-content {
+        margin: 0 !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+      }
+
+      .modal-backdrop {
+        position: static !important;
+        background: transparent !important;
+        padding: 0 !important;
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      .modal-dialog {
+        max-width: 100% !important;
+        box-shadow: none !important;
+        border: none !important;
+        transform: none !important;
+      }
+
+      .modal-body {
+        padding: 0 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="top-navbar">
+    <div class="nav-container">
+      <div class="brand-wrapper">
+        <div class="brand-logo-shield" title="Institute of Technical Education">ITE</div>
+        <div class="brand-info">
+          <h1>ITE College West <span class="campus-pill">Choa Chu Kang</span></h1>
+          <span class="sub-badge">Best Student Nomination Portal • AY2026/2027</span>
+        </div>
+      </div>
+
+      <nav class="nav-actions">
+        <button class="nav-tab-btn active" data-target="nomination-form-view">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 20h9"></path>
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+          </svg>
+          Submit Nomination
+        </button>
+        <button class="nav-tab-btn" data-target="dashboard-view">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          Nominations Dashboard
+          <span class="badge-count" id="navNomineeCount">3</span>
+        </button>
+        <button class="nav-tab-btn" data-target="guidelines-view">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          Award Criteria
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Campus Hero Banner -->
+  <section class="hero-banner">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h2>Recognizing Our Outstanding Achievers</h2>
+        <p>
+          Celebrate students demonstrating the ITE spirit — <strong>Hands-on, Minds-on, Hearts-on</strong>.
+          Submit nominations for the Model Student Award, Technical Excellence, Leadership, and Community Impact across all 4 schools.
+        </p>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat-card">
+          <span class="stat-number" id="kpiTotalNominees">3</span>
+          <span class="stat-label">Total Nominees</span>
+        </div>
+        <div class="hero-stat-card">
+          <span class="stat-number" id="kpiShortlisted">2</span>
+          <span class="stat-label">Shortlisted</span>
+        </div>
+        <div class="hero-stat-card">
+          <span class="stat-number">4</span>
+          <span class="stat-label">Schools</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main View Container -->
+  <main class="main-content">
+
+    <!-- VIEW 1: Multi-Step Nomination Form -->
+    <section id="nomination-form-view" class="view-section active">
+      
+      <!-- Stepper Header -->
+      <div class="stepper-container">
+        <div class="stepper-nav">
+          <button type="button" class="step-item active" data-step="1">
+            <span class="step-bubble">1</span>
+            <span class="step-name">Nominator</span>
+          </button>
+          <button type="button" class="step-item" data-step="2">
+            <span class="step-bubble">2</span>
+            <span class="step-name">Student Profile</span>
+          </button>
+          <button type="button" class="step-item" data-step="3">
+            <span class="step-bubble">3</span>
+            <span class="step-name">Category & CCA</span>
+          </button>
+          <button type="button" class="step-item" data-step="4">
+            <span class="step-bubble">4</span>
+            <span class="step-name">Justification</span>
+          </button>
+          <button type="button" class="step-item" data-step="5">
+            <span class="step-bubble">5</span>
+            <span class="step-name">Review & Submit</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="nomination-grid">
+        <!-- Form Container -->
+        <div class="form-card">
+          <form id="nominationForm" novalidate>
+            
+            <!-- STEP 1: Nominator Details -->
+            <div id="step-content-1" class="step-content">
+              <div class="form-header-bar">
+                <div>
+                  <h3>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Step 1: Nominator Particulars
+                  </h3>
+                  <p>Please enter your institutional staff/advisor credentials</p>
+                </div>
+                <span class="badge-count" style="background:var(--accent); font-weight:700;">1 of 5</span>
+              </div>
+
+              <div class="form-body">
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label class="form-label" for="nominatorName">
+                      Nominator Full Name <span class="req">*</span>
+                    </label>
+                    <input type="text" class="form-control" id="nominatorName" placeholder="e.g. Dr. Koh Wee Kiat" required>
+                    <div class="invalid-feedback">Please enter your full name.</div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="nominatorStaffId">
+                      Staff / Faculty ID <span class="req">*</span>
+                    </label>
+                    <input type="text" class="form-control" id="nominatorStaffId" placeholder="e.g. STF4912" required>
+                    <div class="invalid-feedback">Please enter a valid staff identification number.</div>
+                  </div>
+                </div>
+
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label class="form-label" for="nominatorSchool">
+                      School / Department <span class="req">*</span>
+                    </label>
+                    <select class="form-control" id="nominatorSchool" required>
+                      <option value="">-- Select School / Department --</option>
+                      <option value="SEIT">School of Electronics & Info-Comm Technology (SEIT)</option>
+                      <option value="SBS">School of Business & Services (SBS)</option>
+                      <option value="ENGG">School of Engineering (ENGG)</option>
+                      <option value="SOH">School of Hospitality (SOH)</option>
+                      <option value="STUDENT_AFFAIRS">Student Affairs / CCA Department</option>
+                    </select>
+                    <div class="invalid-feedback">Please select your school or department.</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="nominatorRole">
+                      Designation / Role <span class="req">*</span>
+                    </label>
+                    <select class="form-control" id="nominatorRole" required>
+                      <option value="">-- Select Designation --</option>
+                      <option value="Class Advisor & Senior Lecturer">Class Advisor & Senior Lecturer</option>
+                      <option value="Lecturer / Instructor">Lecturer / Instructor</option>
+                      <option value="Section Head">Section Head</option>
+                      <option value="Deputy Director / Course Chair">Deputy Director / Course Chair</option>
+                      <option value="CCA Advisor / Coach">CCA Advisor / Coach</option>
+                      <option value="Student Care Officer">Student Care Officer</option>
+                    </select>
+                    <div class="invalid-feedback">Please select your role.</div>
+                  </div>
+                </div>
+
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label class="form-label" for="nominatorEmail">
+                      Official ITE Email <span class="req">*</span>
+                    </label>
+                    <input type="email" class="form-control" id="nominatorEmail" placeholder="e.g. koh_wee_kiat@ite.edu.sg" required>
+                    <div class="invalid-feedback">Please enter a valid ITE email address.</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="nominatorRelationship">
+                      Working Relationship to Nominee
+                    </label>
+                    <input type="text" class="form-control" id="nominatorRelationship" placeholder="e.g. Class Advisor for 2 semesters, CCA Coach">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 2: Nominee Particulars & Academic Standing -->
+            <div id="step-content-2" class="step-content" style="display:none;">
+              <div class="form-header-bar">
+                <div>
+                  <h3>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                      <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                    Step 2: Student Nominee Profile & Academics
+                  </h3>
+                  <p>Specify the nominee's academic standing and enrolled course</p>
+                </div>
+                <span class="badge-count" style="background:var(--accent); font-weight:700;">2 of 5</span>
+              </div>
+
+              <div class="form-body">
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label class="form-label" for="studentName">
+                      Student Full Legal Name <span class="req">*</span>
+                      <span class="helper-tag">As per NRIC/Student Pass</span>
+                    </label>
+                    <input type="text" class="form-control" id="studentName" placeholder="e.g. Bryan Tan Zhi Yang" required>
+                    <div class="invalid-feedback">Student legal name is required.</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="studentId">
+                      ITE Student ID (Matriculation No.) <span class="req">*</span>
+                    </label>
+                    <input type="text" class="form-control" id="studentId" placeholder="e.g. 2408512K" maxlength="10" required>
+                    <div class="invalid-feedback">Please enter a valid 7-8 character student ID (e.g. 2408512K).</div>
+                  </div>
+                </div>
+
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label class="form-label" for="studentSchool">
+                      Nominee's School <span class="req">*</span>
+                    </label>
+                    <select class="form-control" id="studentSchool" required>
+                      <option value="">-- Select School --</option>
+                      <option value="SEIT">School of Electronics & Info-Comm Technology (SEIT)</option>
+                      <option value="SBS">School of Business & Services (SBS)</option>
+                      <option value="ENGG">School of Engineering (ENGG)</option>
+                      <option value="SOH">School of Hospitality (SOH)</option>
+                    </select>
+                    <div class="invalid-feedback">Please select the student's school.</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="studentCourse">
+                      Course of Study <span class="req">*</span>
+                    </label>
+                    <select class="form-control" id="studentCourse" disabled required>
+                      <option value="">-- Select School first --</option>
+                    </select>
+                    <div class="invalid-feedback">Please select the enrolled course.</div>
+                  </div>
+                </div>
+
+                <div class="form-row-3">
+                  <div class="form-group">
+                    <label class="form-label" for="studentYear">
+                      Year of Study <span class="req">*</span>
+                    </label>
+                    <select class="form-control" id="studentYear" required>
+                      <option value="">-- Select Year --</option>
+                      <option value="Year 1">Year 1</option>
+                      <option value="Year 2">Year 2</option>
+                      <option value="Final Year">Final Year (Graduating Cohort)</option>
+                    </select>
+                    <div class="invalid-feedback">Please select cohort year.</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="studentClassGroup">
+                      Class Group / Section
+                    </label>
+                    <input type="text" class="form-control" id="studentClassGroup" placeholder="e.g. CS2402A">
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="studentGpa">
+                      Cumulative GPA (cGPA) <span class="req">*</span>
+                      <span class="helper-tag">Scale: 0.00 - 4.00</span>
+                    </label>
+                    <input type="number" class="form-control" id="studentGpa" step="0.01" min="0" max="4.00" placeholder="e.g. 3.88" required>
+                    <div class="invalid-feedback">Valid cGPA between 0.00 and 4.00 is required.</div>
+                  </div>
+                </div>
+
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label class="form-label" for="studentAttendance">
+                      Overall Attendance Rate (%) <span class="req">*</span>
+                    </label>
+                    <input type="number" class="form-control" id="studentAttendance" min="0" max="100" placeholder="e.g. 96" required>
+                    <div class="invalid-feedback">Attendance must be between 0% and 100%.</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="studentDisciplineRecord">
+                      Disciplinary Standing
+                    </label>
+                    <select class="form-control" id="studentDisciplineRecord">
+                      <option value="Clean">Exemplary / Clean Disciplinary Record</option>
+                      <option value="Commended">Special Character Commendation on File</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 3: Award Category & Holistic/CCA Achievements -->
+            <div id="step-content-3" class="step-content" style="display:none;">
+              <div class="form-header-bar">
+                <div>
+                  <h3>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    Step 3: Award Category & Holistic Contributions
+                  </h3>
+                  <p>Choose the target award and outline CCA and leadership achievements</p>
+                </div>
+                <span class="badge-count" style="background:var(--accent); font-weight:700;">3 of 5</span>
+              </div>
+
+              <div class="form-body">
+                <label class="form-label" style="margin-bottom:0.75rem;">
+                  Select Nomination Category <span class="req">*</span>
+                </label>
+
+                <div class="category-selection-grid" id="categoryContainer">
+                  <div class="category-radio-card selected">
+                    <input type="radio" name="nominationCategory" value="LKY Model Student Award" checked>
+                    <div class="category-title">Lee Kuan Yew Model Student Award</div>
+                    <p class="category-desc">The highest honor across ITE. Recognizes students who embody academic brilliance, sterling character, leadership, and community service.</p>
+                    <span class="category-badge-rec">Highest Honor</span>
+                  </div>
+
+                  <div class="category-radio-card">
+                    <input type="radio" name="nominationCategory" value="Top Academic & Technical Excellence Award">
+                    <div class="category-title">Academic & Technical Excellence Award</div>
+                    <p class="category-desc">For top performers who exhibit mastery in hands-on practical skills, high cGPA, and outstanding industry or competition projects.</p>
+                    <span class="category-badge-rec">Skills Mastery</span>
+                  </div>
+
+                  <div class="category-radio-card">
+                    <input type="radio" name="nominationCategory" value="Exemplary Leadership & Service Award">
+                    <div class="category-title">Exemplary Leadership & Service Award</div>
+                    <p class="category-desc">Honors exceptional leaders in Student Council, CCA ExCo, or major community Values-in-Action (VIA) initiatives.</p>
+                    <span class="category-badge-rec">Hearts-on Spirit</span>
+                  </div>
+
+                  <div class="category-radio-card">
+                    <input type="radio" name="nominationCategory" value="Innovation & Enterprise Award">
+                    <div class="category-title">Innovation & Enterprise Award</div>
+                    <p class="category-desc">Recognizes breakthrough problem-solvers, hackathon champions, patent filers, or student entrepreneurs showcasing ingenuity.</p>
+                    <span class="category-badge-rec">Minds-on</span>
+                  </div>
+
+                  <div class="category-radio-card">
+                    <input type="radio" name="nominationCategory" value="Resilience & Courage Award">
+                    <div class="category-title">Valiant Spirit & Resilience Award</div>
+                    <p class="category-desc">For inspiring individuals who have overcome severe personal, health, or socio-economic hardships to achieve excellence.</p>
+                    <span class="category-badge-rec">Inspiring Grit</span>
+                  </div>
+                </div>
+
+                <div class="form-row-3">
+                  <div class="form-group">
+                    <label class="form-label" for="ccaActivityName">
+                      Primary CCA / Club / Society <span class="req">*</span>
+                    </label>
+                    <input type="text" class="form-control" id="ccaActivityName" placeholder="e.g. West Ambassadors, Robotics Club" required>
+                    <div class="invalid-feedback">Please specify primary CCA.</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="ccaGrade">
+                      Current CCA Grade <span class="req">*</span>
+                    </label>
+                    <select class="form-control" id="ccaGrade" required>
+                      <option value="">-- Select Grade --</option>
+                      <option value="A">Grade A (Distinction / 20+ pts)</option>
+                      <option value="B">Grade B (Merit / 16-19 pts)</option>
+                      <option value="C">Grade C (Credit / 12-15 pts)</option>
+                      <option value="D">Grade D (Pass / 8-11 pts)</option>
+                    </select>
+                    <div class="invalid-feedback">Select CCA grade.</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="ccaLeadershipRole">
+                      Highest Leadership Position <span class="req">*</span>
+                    </label>
+                    <select class="form-control" id="ccaLeadershipRole" required>
+                      <option value="">-- Select Role --</option>
+                      <option value="President / Captain">President / Chairperson / Captain</option>
+                      <option value="Vice-President / Head">Vice-President / Section Head</option>
+                      <option value="Project Lead / Sub-Committee Head">Project Lead / Sub-Committee Head</option>
+                      <option value="Active Member">Active Core Member</option>
+                    </select>
+                    <div class="invalid-feedback">Select leadership position.</div>
+                  </div>
+                </div>
+
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label class="form-label" for="viaHours">
+                      Values-in-Action (VIA) Community Hours
+                      <span class="helper-tag">Total volunteering hours</span>
+                    </label>
+                    <input type="number" class="form-control" id="viaHours" min="0" placeholder="e.g. 45">
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label">
+                      Recognized Honors & External Distinctions
+                      <span class="helper-tag">Check all that apply</span>
+                    </label>
+                    <div class="checkbox-pill-group">
+                      <div class="checkbox-pill">
+                        <input type="checkbox" id="achieve1" value="WorldSkills Singapore Medallion of Excellence">
+                        <label for="achieve1">WorldSkills Singapore Medal</label>
+                      </div>
+                      <div class="checkbox-pill">
+                        <input type="checkbox" id="achieve2" value="National Hackathon 1st Place / Gold">
+                        <label for="achieve2">National Competition / Gold</label>
+                      </div>
+                      <div class="checkbox-pill">
+                        <input type="checkbox" id="achieve3" value="Student Council ExCo Member">
+                        <label for="achieve3">Student Council ExCo</label>
+                      </div>
+                      <div class="checkbox-pill">
+                        <input type="checkbox" id="achieve4" value="Community Service VIA Project Leader">
+                        <label for="achieve4">VIA Project Leader</label>
+                      </div>
+                      <div class="checkbox-pill">
+                        <input type="checkbox" id="achieve5" value="Peer Tutoring & Academic Mentorship">
+                        <label for="achieve5">Peer Mentor / Tutor</label>
+                      </div>
+                      <div class="checkbox-pill">
+                        <input type="checkbox" id="achieve6" value="Industry Partner Commendation">
+                        <label for="achieve6">Industry Internship Commendation</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 4: Justification Statement & Strengths -->
+            <div id="step-content-4" class="step-content" style="display:none;">
+              <div class="form-header-bar">
+                <div>
+                  <h3>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                      <polyline points="14 2 14 8 20 8"></polyline>
+                      <line x1="16" y1="13" x2="8" y2="13"></line>
+                      <line x1="16" y1="17" x2="8" y2="17"></line>
+                      <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    Step 4: Character & Qualitative Justification
+                  </h3>
+                  <p>Provide detailed testimonial and concrete evidence of student merit</p>
+                </div>
+                <span class="badge-count" style="background:var(--accent); font-weight:700;">4 of 5</span>
+              </div>
+
+              <div class="form-body">
+                <div class="form-group">
+                  <label class="form-label" for="justificationStatement">
+                    Comprehensive Nomination Statement & Justification <span class="req">*</span>
+                    <span class="helper-tag">Describe specific contributions, attitude, impact on peers & community</span>
+                  </label>
+                  <textarea class="form-control" id="justificationStatement" rows="5" placeholder="Highlight concrete examples: How has this student exemplified the ITE West values? What significant milestones or projects have they spearheaded? How do they lift their classmates and represent the college?" required></textarea>
+                  <div class="char-counter" id="stmtCharCount">0 / 50 min characters</div>
+                  <div class="invalid-feedback">Please provide a detailed justification statement (at least 50 characters).</div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="keyStrengths">
+                    Key Character Strengths & Virtues <span class="req">*</span>
+                    <span class="helper-tag">E.g. Integrity, Resilience, Humility, Collaborative Leadership</span>
+                  </label>
+                  <input type="text" class="form-control" id="keyStrengths" placeholder="e.g. Deep technical grit, highly compassionate mentor, dependable team anchor" required>
+                  <div class="invalid-feedback">Please provide key character strengths.</div>
+                </div>
+
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label class="form-label" for="portfolioLink">
+                      Online Portfolio / Evidence Link (Optional)
+                      <span class="helper-tag">GitHub, LinkedIn, Video, or Google Drive link</span>
+                    </label>
+                    <input type="url" class="form-control" id="portfolioLink" placeholder="https://linkedin.com/in/... or portfolio website">
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="attachmentSimulator">
+                      Attach Supporting Testimonial / Certificates (PDF/Doc)
+                    </label>
+                    <input type="file" class="form-control" id="attachmentSimulator" accept=".pdf,.doc,.docx,.png,.jpg">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 5: Review & Digital Declaration -->
+            <div id="step-content-5" class="step-content" style="display:none;">
+              <div class="form-header-bar">
+                <div>
+                  <h3>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    Step 5: Review Summary & Digital Sign-off
+                  </h3>
+                  <p>Verify all details prior to official committee submission</p>
+                </div>
+                <span class="badge-count" style="background:var(--success); font-weight:700;">Final Step</span>
+              </div>
+
+              <div class="form-body">
+                <!-- Summary Dossier Box -->
+                <div class="review-dossier">
+                  <div class="dossier-section">
+                    <div class="dossier-title">Nominee & Academic Profile</div>
+                    <div class="dossier-grid">
+                      <div class="dossier-item">
+                        <div class="d-label">Student Name</div>
+                        <div class="d-value" id="revStudentName">—</div>
+                      </div>
+                      <div class="dossier-item">
+                        <div class="d-label">Student ID</div>
+                        <div class="d-value" id="revStudentId">—</div>
+                      </div>
+                      <div class="dossier-item">
+                        <div class="d-label">Course & School</div>
+                        <div class="d-value" id="revStudentCourse">—</div>
+                      </div>
+                      <div class="dossier-item">
+                        <div class="d-label">Cohort & Class</div>
+                        <div class="d-value" id="revStudentCohort">—</div>
+                      </div>
+                      <div class="dossier-item">
+                        <div class="d-label">cGPA & Attendance</div>
+                        <div class="d-value" id="revStudentGpa">—</div>
+                      </div>
+                      <div class="dossier-item">
+                        <div class="d-label">Calculated Holistic Score</div>
+                        <div class="d-value" style="color:var(--ite-red);" id="revTotalScore">—</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="dossier-section">
+                    <div class="dossier-title">Award Category & Achievements</div>
+                    <div class="dossier-grid">
+                      <div class="dossier-item">
+                        <div class="d-label">Nominated Award</div>
+                        <div class="d-value" id="revNomCategory">—</div>
+                      </div>
+                      <div class="dossier-item">
+                        <div class="d-label">CCA & Leadership</div>
+                        <div class="d-value" id="revCcaInfo">—</div>
+                      </div>
+                      <div class="dossier-item">
+                        <div class="d-label">VIA Community Service</div>
+                        <div class="d-value" id="revViaHours">—</div>
+                      </div>
+                    </div>
+                    <div style="margin-top:0.6rem;">
+                      <div class="d-label">Recognized Distinctions</div>
+                      <div class="d-value" style="font-size:0.85rem;" id="revAchievements">—</div>
+                    </div>
+                  </div>
+
+                  <div class="dossier-section">
+                    <div class="dossier-title">Justification Excerpt</div>
+                    <p style="font-size:0.85rem; line-height:1.45; color:var(--text-main); font-style:italic;" id="revStatement">—</p>
+                    <div style="margin-top:0.5rem;">
+                      <div class="d-label">Core Strengths</div>
+                      <div class="d-value" id="revStrengths">—</div>
+                    </div>
+                  </div>
+
+                  <div class="dossier-section">
+                    <div class="dossier-title">Nominator Particulars</div>
+                    <div class="dossier-grid">
+                      <div class="dossier-item">
+                        <div class="d-label">Nominator</div>
+                        <div class="d-value" id="revNominatorName">—</div>
+                      </div>
+                      <div class="dossier-item">
+                        <div class="d-label">Role & Dept</div>
+                        <div class="d-value" id="revNominatorRole">—</div>
+                      </div>
+                      <div class="dossier-item">
+                        <div class="d-label">Official Email</div>
+                        <div class="d-value" id="revNominatorEmail">—</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Declaration Alert -->
+                <div class="declaration-box">
+                  <p><strong>Official Nominator Declaration:</strong> By submitting this form, I affirm that the information provided regarding the student's academic standing, character, CCA involvement, and honors is accurate, truthful, and substantiated to the best of my knowledge as an academic staff member of ITE College West.</p>
+                  <label class="declaration-checkbox-row">
+                    <input type="checkbox" id="declarationCheck" required>
+                    <span>I confirm and endorse this nomination for the ITE College West Best Student Selection Panel.</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stepper Actions Footer -->
+            <div class="stepper-actions" style="padding: 1.25rem 1.75rem;">
+              <button type="button" class="btn btn-secondary" id="btnPrevStep" style="display:none;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+                Previous Step
+              </button>
+
+              <div style="margin-left:auto; display:flex; gap:0.75rem;">
+                <button type="button" class="btn btn-danger" id="btnNextStep">
+                  Next Step
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+                <button type="submit" class="btn btn-danger" id="btnSubmitNomination" style="display:none;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5"></path>
+                  </svg>
+                  Submit Official Nomination
+                </button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- Sidebar Live Rubric & Score Gauge -->
+        <aside class="sidebar-card">
+          <div class="sidebar-title">
+            <span>Holistic Rubric</span>
+            <span style="font-size:0.75rem; background:#fee2e2; color:var(--ite-red); padding:0.15rem 0.5rem; border-radius:var(--radius-full);">Live Score</span>
+          </div>
+
+          <div class="holistic-score-meter">
+            <div class="score-circle">
+              <span class="score-number" id="liveScoreNumber">0</span>
+              <span class="score-max">/ 100 PTS</span>
+            </div>
+            <div class="score-tier-label" id="scoreTierBadge">Candidate</div>
+          </div>
+
+          <!-- Breakdown progress bars -->
+          <div class="score-breakdown-list">
+            <div class="score-bar-item">
+              <div class="score-bar-header">
+                <span>Academics & Attendance</span>
+                <span id="scoreValAcad">0 / 40</span>
+              </div>
+              <div class="score-progress-track">
+                <div class="score-progress-fill fill-acad" id="scoreBarAcad" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <div class="score-bar-item">
+              <div class="score-bar-header">
+                <span>CCA Achievement Grade</span>
+                <span id="scoreValCca">0 / 25</span>
+              </div>
+              <div class="score-progress-track">
+                <div class="score-progress-fill fill-cca" id="scoreBarCca" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <div class="score-bar-item">
+              <div class="score-bar-header">
+                <span>Leadership & Community VIA</span>
+                <span id="scoreValLead">0 / 20</span>
+              </div>
+              <div class="score-progress-track">
+                <div class="score-progress-fill fill-lead" id="scoreBarLead" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <div class="score-bar-item">
+              <div class="score-bar-header">
+                <span>Special Honors & Awards</span>
+                <span id="scoreValChar">0 / 15</span>
+              </div>
+              <div class="score-progress-track">
+                <div class="score-progress-fill fill-char" id="scoreBarChar" style="width: 0%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Preview Snapshot -->
+          <div class="sidebar-live-preview">
+            <div class="preview-row">
+              <span class="preview-label">Nominee:</span>
+              <span class="preview-val" id="livePreviewName">—</span>
+            </div>
+            <div class="preview-row">
+              <span class="preview-label">Student ID:</span>
+              <span class="preview-val" id="livePreviewId">—</span>
+            </div>
+            <div class="preview-row">
+              <span class="preview-label">School:</span>
+              <span class="preview-val" id="livePreviewSchool">—</span>
+            </div>
+            <div class="preview-row">
+              <span class="preview-label">Category:</span>
+              <span class="preview-val" id="livePreviewCat">Model Student</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+    </section>
+
+    <!-- VIEW 2: Nominations Review & Search Dashboard -->
+    <section id="dashboard-view" class="view-section">
+      <div class="dashboard-controls">
+        <div class="filter-group">
+          <div class="search-input-wrapper">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" class="form-control" id="dashboardSearch" placeholder="Search student name, ID, or nominator...">
+          </div>
+
+          <select class="form-control" id="filterSchool" style="max-width: 170px;">
+            <option value="">All Schools</option>
+            <option value="SEIT">SEIT</option>
+            <option value="SBS">SBS</option>
+            <option value="ENGG">Engineering</option>
+            <option value="SOH">Hospitality</option>
+          </select>
+
+          <select class="form-control" id="filterCategory" style="max-width: 200px;">
+            <option value="">All Categories</option>
+            <option value="LKY Model Student Award">Model Student Award</option>
+            <option value="Top Academic & Technical Excellence Award">Academic & Technical</option>
+            <option value="Exemplary Leadership & Service Award">Leadership & Service</option>
+            <option value="Innovation & Enterprise Award">Innovation & Enterprise</option>
+            <option value="Resilience & Courage Award">Resilience Award</option>
+          </select>
+
+          <select class="form-control" id="filterStatus" style="max-width: 160px;">
+            <option value="">All Statuses</option>
+            <option value="Pending Review">Pending Review</option>
+            <option value="Shortlisted">Shortlisted</option>
+            <option value="Endorsed">Endorsed</option>
+          </select>
+        </div>
+
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+          <button class="btn btn-secondary btn-sm" id="btnExportCsv" title="Export nominations to spreadsheet">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Export CSV
+          </button>
+
+          <button class="btn btn-secondary btn-sm" id="btnExportJson" title="Export raw JSON data">
+            JSON
+          </button>
+
+          <button class="btn btn-secondary btn-sm" id="btnResetSeedData" title="Reset to sample nominations">
+            Reload Samples
+          </button>
+        </div>
+      </div>
+
+      <!-- Nominations Table -->
+      <div class="table-card">
+        <div class="table-responsive">
+          <table class="nomination-table">
+            <thead>
+              <tr>
+                <th>Student Nominee</th>
+                <th>School & Course</th>
+                <th>Academic Standing</th>
+                <th>Award Category</th>
+                <th>Holistic Score</th>
+                <th>Review Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="nominationsTableBody">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: Guidelines & Award Criteria -->
+    <section id="guidelines-view" class="view-section">
+      <div style="margin-bottom:1.5rem;">
+        <h3 style="font-size:1.4rem; color:var(--primary); font-weight:800;">Nomination Categories & Evaluation Standards</h3>
+        <p style="color:var(--text-muted); font-size:0.92rem;">Criteria established for the ITE College West Student Awards Committee.</p>
+      </div>
+
+      <div class="guidelines-grid">
+        <div class="guide-card">
+          <h4>
+            <span style="color:var(--ite-gold);">★</span> Lee Kuan Yew Model Student Award
+          </h4>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem;">The premier institutional accolade recognizing the pinnacle of all-round achievement.</p>
+          <ul class="guide-list">
+            <li>Exceptional academic standing (Recommended cGPA &ge; 3.80).</li>
+            <li>Grade A in Co-Curricular Activities (CCA).</li>
+            <li>Significant leadership portfolio (Council, ExCo, or National youth bodies).</li>
+            <li>Passionate engagement in community service (&ge; 40 VIA hours).</li>
+            <li>Exemplifies the values of Integrity, Teamwork, and Excellence.</li>
+          </ul>
+        </div>
+
+        <div class="guide-card">
+          <h4>
+            <span style="color:var(--accent);">⚙</span> Academic & Technical Excellence Award
+          </h4>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem;">Celebrating mastery in practical craft, trade skills, and intellectual vigor.</p>
+          <ul class="guide-list">
+            <li>Top 5% rank in technical coursework and practical competencies.</li>
+            <li>Participation or medals in WorldSkills Singapore, hackathons, or national skills challenges.</li>
+            <li>Exemplary attendance rate (&ge; 95%) and classroom discipline.</li>
+            <li>Outstanding Industry Attachment (internship) employer appraisal.</li>
+          </ul>
+        </div>
+
+        <div class="guide-card">
+          <h4>
+            <span style="color:var(--success);">❤</span> Exemplary Leadership & Service Award
+          </h4>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem;">Celebrating the "Hearts-on" spirit and servant leadership across the campus.</p>
+          <ul class="guide-list">
+            <li>Active leadership tenure in Student Council or college CCAs.</li>
+            <li>Demonstrated initiative in organizing campus-wide or community-based service projects.</li>
+            <li>Positive influence and empathetic mentorship to fellow classmates.</li>
+          </ul>
+        </div>
+
+        <div class="guide-card">
+          <h4>
+            <span style="color:var(--ite-red);">⚡</span> Innovation & Enterprise Award
+          </h4>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem;">Recognizing inventive problem-solvers and student innovators.</p>
+          <ul class="guide-list">
+            <li>Development of ingenious prototypes, apps, or business ideas.</li>
+            <li>Demonstrated commercial or campus utility solving real-world challenges.</li>
+            <li>Winner or finalist in enterprise pitching or design thinking showcases.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Full Nomination Dossier Modal (Printable) -->
+  <div class="modal-backdrop" id="dossierModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3>Nomination Dossier Review</h3>
+        <button class="modal-close-btn" id="closeModalBtn">&times;</button>
+      </div>
+
+      <div class="modal-body" id="modalDossierContent">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" id="modalCloseFooter">Close</button>
+        <button class="btn btn-danger btn-sm" id="modalPrintBtn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          Print Official Dossier
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <p>&copy; 2026 Institute of Technical Education (ITE) College West • Student Development & Academic Affairs</p>
+    <p style="margin-top: 4px; font-size: 0.72rem; color: var(--text-subtle);">
+      1 Choa Chu Kang Grove, Singapore 688236 • For faculty & staff use only
+    </p>
+  </footer>
+
+  <!-- Application Logic -->
+  <script>
+    // Course offerings mapped by ITE College West Schools
+    const SCHOOL_COURSES = {
+      SEIT: [
+        "Higher Nitec in IT Applications",
+        "Higher Nitec in Cyber & Network Security",
+        "Higher Nitec in AI Applications",
+        "Higher Nitec in Games Art & Design",
+        "Higher Nitec in Security System Integration",
+        "Higher Nitec in Data Engineering",
+        "Nitec in Infocomm Technology"
+      ],
+      SBS: [
+        "Higher Nitec in Accounting",
+        "Higher Nitec in Event Management",
+        "Higher Nitec in Financial Services",
+        "Higher Nitec in Human Resource & Administration",
+        "Higher Nitec in Retail & Online Business",
+        "Higher Nitec in Service Management"
+      ],
+      ENGG: [
+        "Higher Nitec in Mechanical Engineering",
+        "Higher Nitec in Electrical Engineering",
+        "Higher Nitec in Mechatronics Engineering",
+        "Higher Nitec in Automotive Engineering",
+        "Higher Nitec in Rapid Transit Engineering",
+        "Higher Nitec in Facility Management"
+      ],
+      SOH: [
+        "Higher Nitec in Culinary Arts",
+        "Higher Nitec in Pastry & Baking",
+        "Higher Nitec in Hospitality Operations",
+        "Higher Nitec in Western Culinary Arts",
+        "Higher Nitec in Asian Culinary Arts"
+      ]
+    };
+
+    // Realistic ITE College West sample records
+    const INITIAL_SEED_DATA = [
+      {
+        id: "NOM-2026-001",
+        nominator: {
+          name: "Tan Chee Meng",
+          staffId: "STF8842",
+          role: "Class Advisor & Senior Lecturer",
+          school: "SEIT",
+          email: "tan_chee_meng@ite.edu.sg",
+          relationship: "Lecturer for 3 semesters"
+        },
+        nominee: {
+          name: "Marcus Lim Jun Wei",
+          studentId: "2408192A",
+          school: "SEIT",
+          course: "Higher Nitec in Cyber & Network Security",
+          year: "Year 2",
+          classGroup: "CS2404B",
+          gpa: 3.94,
+          attendance: 98
+        },
+        category: "LKY Model Student Award",
+        cca: {
+          activity: "ITE West Cyber Security & Infocomm Club",
+          grade: "A",
+          leadership: "President / Captain",
+          viaHours: 48,
+          achievements: [
+            "WorldSkills Singapore Medallion of Excellence",
+            "National Hackathon 1st Place / Gold",
+            "Student Council ExCo Member",
+            "Community Service VIA Project Leader"
+          ]
+        },
+        statement: "Marcus represents the finest spirit of ITE College West: hands-on, minds-on, and hearts-on. Maintaining a near-perfect 3.94 cGPA, he championed the campus Cyber Defense challenge and led a team to gold at the National Cyber Youth Olympics. Above all, Marcus spends weekends coaching vulnerable seniors in Choa Chu Kang community center on scam awareness.",
+        strengths: "Extraordinary technical depth in penetration testing, humble leadership style, proactive mentorship toward junior students.",
+        status: "Shortlisted",
+        score: 96,
+        submittedAt: "2026-08-20T09:30:00Z"
+      },
+      {
+        id: "NOM-2026-002",
+        nominator: {
+          name: "Chef Michelle Wong",
+          staffId: "STF6119",
+          role: "Section Head / Master Chef Instructor",
+          school: "SOH",
+          email: "michelle_wong@ite.edu.sg",
+          relationship: "Culinary Training Mentor"
+        },
+        nominee: {
+          name: "Nurul Aisyah Binte Razak",
+          studentId: "2304910B",
+          school: "SOH",
+          course: "Higher Nitec in Pastry & Baking",
+          year: "Final Year",
+          classGroup: "PB2301A",
+          gpa: 3.86,
+          attendance: 99
+        },
+        category: "Top Academic & Technical Excellence Award",
+        cca: {
+          activity: "Culinary Masters Guild & West Ambassadors",
+          grade: "A",
+          leadership: "Vice-President / Head",
+          viaHours: 65,
+          achievements: [
+            "National Competition Gold / Champion",
+            "Community Service VIA Project Leader",
+            "Peer Tutoring & Academic Mentorship"
+          ]
+        },
+        statement: "Aisyah exhibits world-class precision and culinary artistry. She represented Singapore at the International Young Chef Olympiad, earning high commendations. Despite intensive competition regimens, she clocked 65 VIA hours baking nutritious pastries for community hospice homes in Bukit Batok.",
+        strengths: "Uncompromising culinary craft, exemplary punctuality, resilience under severe kitchen pressures.",
+        status: "Endorsed",
+        score: 93,
+        submittedAt: "2026-08-22T14:15:00Z"
+      },
+      {
+        id: "NOM-2026-003",
+        nominator: {
+          name: "Dr. David Ong",
+          staffId: "STF5201",
+          role: "Lecturer / Project Supervisor",
+          school: "ENGG",
+          email: "david_ong@ite.edu.sg",
+          relationship: "Final Year Project Mentor"
+        },
+        nominee: {
+          name: "Kavitha d/o Rajan",
+          studentId: "2401734C",
+          school: "ENGG",
+          course: "Higher Nitec in Mechatronics Engineering",
+          year: "Year 2",
+          classGroup: "ME2402A",
+          gpa: 3.75,
+          attendance: 96
+        },
+        category: "Innovation & Enterprise Award",
+        cca: {
+          activity: "West Robotics Innovation Club",
+          grade: "B",
+          leadership: "Project Lead / Sub-Committee Head",
+          viaHours: 35,
+          achievements: [
+            "Campus Innovation / Enterprise Showcase Winner",
+            "National Hackathon 1st Place / Gold",
+            "Industry Partner Commendation"
+          ]
+        },
+        statement: "Kavitha spearheaded an assistive mobility smart wheelchair attachment that caught the attention of SMRT accessibility engineers. Her ingenuity in combining IoT sensors with low-cost mechatronic actuation exemplifies practical engineering at its best.",
+        strengths: "Creative problem solver, cross-disciplinary thinker, tireless tenacity during prototype troubleshooting.",
+        status: "Pending Review",
+        score: 87,
+        submittedAt: "2026-08-25T11:00:00Z"
+      }
+    ];
+
+    let currentStep = 1;
+    let nominations = [];
+
+    document.addEventListener("DOMContentLoaded", () => {
+      loadNominations();
+      setupNavigation();
+      setupCourseDropdown();
+      setupLiveValidationAndScore();
+      setupStepperControls();
+      setupDashboardControls();
+      renderNominationsTable();
+      updateTopKpis();
+    });
+
+    function loadNominations() {
+      const stored = localStorage.getItem("ite_cw_nominations");
+      if (stored) {
+        try {
+          nominations = JSON.parse(stored);
+        } catch (e) {
+          nominations = [...INITIAL_SEED_DATA];
+          saveNominations();
+        }
+      } else {
+        nominations = [...INITIAL_SEED_DATA];
+        saveNominations();
+      }
+    }
+
+    function saveNominations() {
+      localStorage.setItem("ite_cw_nominations", JSON.stringify(nominations));
+      updateTopKpis();
+    }
+
+    function setupNavigation() {
+      const tabs = document.querySelectorAll(".nav-tab-btn");
+      tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+          tabs.forEach(t => t.classList.remove("active"));
+          tab.classList.add("active");
+
+          const target = tab.dataset.target;
+          document.querySelectorAll(".view-section").forEach(sec => sec.classList.remove("active"));
+          const targetSec = document.getElementById(target);
+          if (targetSec) targetSec.classList.add("active");
+
+          if (target === "dashboard-view") {
+            renderNominationsTable();
+          }
+        });
+      });
+    }
+
+    function setupCourseDropdown() {
+      const schoolSelect = document.getElementById("studentSchool");
+      const courseSelect = document.getElementById("studentCourse");
+      if (!schoolSelect || !courseSelect) return;
+
+      function updateCourses() {
+        const selectedSchool = schoolSelect.value;
+        courseSelect.innerHTML = '<option value="">-- Select Course of Study --</option>';
+
+        if (SCHOOL_COURSES[selectedSchool]) {
+          SCHOOL_COURSES[selectedSchool].forEach(course => {
+            const opt = document.createElement("option");
+            opt.value = course;
+            opt.textContent = course;
+            courseSelect.appendChild(opt);
+          });
+          courseSelect.disabled = false;
+        } else {
+          courseSelect.disabled = true;
+        }
+      }
+
+      schoolSelect.addEventListener("change", () => {
+        updateCourses();
+        calculateLiveScore();
+      });
+
+      updateCourses();
+    }
+
+    function setupStepperControls() {
+      const stepItems = document.querySelectorAll(".step-item");
+      stepItems.forEach(item => {
+        item.addEventListener("click", () => {
+          const stepToGo = parseInt(item.dataset.step, 10);
+          if (stepToGo < currentStep || validateStep(currentStep)) {
+            goToStep(stepToGo);
+          }
+        });
+      });
+
+      document.getElementById("btnNextStep")?.addEventListener("click", () => {
+        if (validateStep(currentStep)) {
+          if (currentStep < 5) {
+            goToStep(currentStep + 1);
+          }
+        }
+      });
+
+      document.getElementById("btnPrevStep")?.addEventListener("click", () => {
+        if (currentStep > 1) {
+          goToStep(currentStep - 1);
+        }
+      });
+
+      document.getElementById("nominationForm")?.addEventListener("submit", (e) => {
+        e.preventDefault();
+        handleNominationSubmit();
+      });
+
+      const catCards = document.querySelectorAll(".category-radio-card");
+      catCards.forEach(card => {
+        card.addEventListener("click", () => {
+          catCards.forEach(c => c.classList.remove("selected"));
+          card.classList.add("selected");
+          const radio = card.querySelector('input[type="radio"]');
+          if (radio) {
+            radio.checked = true;
+            calculateLiveScore();
+          }
+        });
+      });
+    }
+
+    function goToStep(step) {
+      document.querySelectorAll(".step-item").forEach(item => {
+        const s = parseInt(item.dataset.step, 10);
+        item.classList.remove("active", "completed");
+        if (s === step) item.classList.add("active");
+        else if (s < step) item.classList.add("completed");
+      });
+
+      document.querySelectorAll(".step-content").forEach(content => {
+        content.style.display = "none";
+      });
+      const targetContent = document.getElementById(`step-content-${step}`);
+      if (targetContent) targetContent.style.display = "block";
+
+      currentStep = step;
+
+      const btnPrev = document.getElementById("btnPrevStep");
+      const btnNext = document.getElementById("btnNextStep");
+      const btnSubmit = document.getElementById("btnSubmitNomination");
+
+      if (btnPrev) btnPrev.style.display = step === 1 ? "none" : "inline-flex";
+      if (btnNext) btnNext.style.display = step === 5 ? "none" : "inline-flex";
+      if (btnSubmit) btnSubmit.style.display = step === 5 ? "inline-flex" : "none";
+
+      if (step === 5) populateStep5Review();
+
+      const formCard = document.querySelector(".form-card");
+      if (formCard) {
+        formCard.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    function validateStep(step) {
+      let isValid = true;
+
+      function markValidity(el, valid, message) {
+        if (!el) return;
+        const feedback = el.parentElement.querySelector(".invalid-feedback");
+        if (!valid) {
+          el.classList.add("is-invalid");
+          if (feedback && message) feedback.textContent = message;
+          isValid = false;
+        } else {
+          el.classList.remove("is-invalid");
+        }
+      }
+
+      if (step === 1) {
+        const nomName = document.getElementById("nominatorName");
+        const nomStaffId = document.getElementById("nominatorStaffId");
+        const nomSchool = document.getElementById("nominatorSchool");
+        const nomRole = document.getElementById("nominatorRole");
+        const nomEmail = document.getElementById("nominatorEmail");
+
+        markValidity(nomName, nomName.value.trim().length >= 2, "Please enter your full name");
+        markValidity(nomStaffId, nomStaffId.value.trim().length >= 4, "Please enter a valid Staff/Admin ID");
+        markValidity(nomSchool, nomSchool.value !== "", "Please select your school / department");
+        markValidity(nomRole, nomRole.value !== "", "Please select your appointment / designation");
+        markValidity(nomEmail, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(nomEmail.value.trim()), "Please enter a valid email address");
+      } else if (step === 2) {
+        const sName = document.getElementById("studentName");
+        const sId = document.getElementById("studentId");
+        const sSchool = document.getElementById("studentSchool");
+        const sCourse = document.getElementById("studentCourse");
+        const sYear = document.getElementById("studentYear");
+        const sGpa = document.getElementById("studentGpa");
+        const sAtt = document.getElementById("studentAttendance");
+
+        markValidity(sName, sName.value.trim().length >= 2, "Please enter student's full legal name");
+        markValidity(sId, /^[0-9]{7,8}[A-Za-z]$/.test(sId.value.trim()), "Enter valid ITE Student ID (e.g. 2408192A)");
+        markValidity(sSchool, sSchool.value !== "", "Select student's school");
+        markValidity(sCourse, sCourse.value !== "", "Select course of study");
+        markValidity(sYear, sYear.value !== "", "Select year of study");
+
+        const gpaVal = parseFloat(sGpa.value);
+        markValidity(sGpa, !isNaN(gpaVal) && gpaVal >= 0.0 && gpaVal <= 4.0, "cGPA must be between 0.00 and 4.00");
+
+        const attVal = parseFloat(sAtt.value);
+        markValidity(sAtt, !isNaN(attVal) && attVal >= 0 && attVal <= 100, "Attendance must be between 0% and 100%");
+      } else if (step === 3) {
+        const selectedCat = document.querySelector('input[name="nominationCategory"]:checked');
+        if (!selectedCat) {
+          showToast("Please select a nomination award category", "danger");
+          isValid = false;
+        }
+
+        const ccaName = document.getElementById("ccaActivityName");
+        const ccaGrade = document.getElementById("ccaGrade");
+        const ccaLead = document.getElementById("ccaLeadershipRole");
+
+        markValidity(ccaName, ccaName.value.trim().length >= 2, "State the primary CCA / Council / Society");
+        markValidity(ccaGrade, ccaGrade.value !== "", "Select current CCA Grade");
+        markValidity(ccaLead, ccaLead.value !== "", "Select leadership level");
+      } else if (step === 4) {
+        const stmt = document.getElementById("justificationStatement");
+        const strengths = document.getElementById("keyStrengths");
+
+        markValidity(stmt, stmt.value.trim().length >= 50, "Please provide at least 50 characters of detailed justification");
+        markValidity(strengths, strengths.value.trim().length >= 10, "Please summarize key strengths");
+      }
+
+      if (!isValid) {
+        showToast("Please complete the required fields highlighted in red before proceeding.", "danger");
+      }
+
+      return isValid;
+    }
+
+    function setupLiveValidationAndScore() {
+      const inputsToWatch = [
+        "studentName", "studentId", "studentSchool", "studentCourse", "studentGpa",
+        "studentAttendance", "ccaGrade", "ccaLeadershipRole", "viaHours",
+        "justificationStatement", "keyStrengths"
+      ];
+
+      inputsToWatch.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.addEventListener("input", calculateLiveScore);
+          el.addEventListener("change", calculateLiveScore);
+        }
+      });
+
+      document.querySelectorAll('.checkbox-pill input[type="checkbox"]').forEach(cb => {
+        cb.addEventListener("change", calculateLiveScore);
+      });
+
+      const stmt = document.getElementById("justificationStatement");
+      const charCounter = document.getElementById("stmtCharCount");
+      if (stmt && charCounter) {
+        stmt.addEventListener("input", () => {
+          charCounter.textContent = `${stmt.value.length} / 50 min characters`;
+        });
+      }
+
+      calculateLiveScore();
+    }
+
+    function calculateLiveScore() {
+      const gpa = parseFloat(document.getElementById("studentGpa")?.value) || 0;
+      const attendance = parseFloat(document.getElementById("studentAttendance")?.value) || 0;
+      let academicScore = (gpa / 4.0) * 35;
+      if (attendance >= 95) academicScore += 5;
+      else if (attendance >= 90) academicScore += 3;
+      academicScore = Math.min(40, Math.round(academicScore));
+
+      const ccaGrade = document.getElementById("ccaGrade")?.value;
+      let ccaScore = 0;
+      if (ccaGrade === "A") ccaScore = 25;
+      else if (ccaGrade === "B") ccaScore = 19;
+      else if (ccaGrade === "C") ccaScore = 13;
+      else if (ccaGrade === "D") ccaScore = 8;
+
+      const leadership = document.getElementById("ccaLeadershipRole")?.value;
+      let leadScore = 0;
+      if (leadership === "President / Captain") leadScore += 10;
+      else if (leadership === "Vice-President / Head") leadScore += 8;
+      else if (leadership === "Project Lead / Sub-Committee Head") leadScore += 6;
+      else if (leadership === "Active Member") leadScore += 3;
+
+      const viaHours = parseFloat(document.getElementById("viaHours")?.value) || 0;
+      if (viaHours >= 50) leadScore += 10;
+      else if (viaHours >= 30) leadScore += 7;
+      else if (viaHours >= 15) leadScore += 5;
+      else if (viaHours > 0) leadScore += 3;
+      leadScore = Math.min(20, leadScore);
+
+      let achievementsCount = 0;
+      document.querySelectorAll('.checkbox-pill input[type="checkbox"]:checked').forEach(() => {
+        achievementsCount++;
+      });
+      let honorsScore = Math.min(15, achievementsCount * 4);
+
+      const totalScore = Math.min(100, academicScore + ccaScore + leadScore + honorsScore);
+
+      document.getElementById("liveScoreNumber").textContent = totalScore;
+      document.getElementById("scoreBarAcad").style.width = `${(academicScore / 40) * 100}%`;
+      document.getElementById("scoreValAcad").textContent = `${academicScore} / 40`;
+
+      document.getElementById("scoreBarCca").style.width = `${(ccaScore / 25) * 100}%`;
+      document.getElementById("scoreValCca").textContent = `${ccaScore} / 25`;
+
+      document.getElementById("scoreBarLead").style.width = `${(leadScore / 20) * 100}%`;
+      document.getElementById("scoreValLead").textContent = `${leadScore} / 20`;
+
+      document.getElementById("scoreBarChar").style.width = `${(honorsScore / 15) * 100}%`;
+      document.getElementById("scoreValChar").textContent = `${honorsScore} / 15`;
+
+      const tierEl = document.getElementById("scoreTierBadge");
+      if (totalScore >= 90) {
+        tierEl.textContent = "Outstanding Distinction";
+        tierEl.style.color = "#15803d";
+      } else if (totalScore >= 80) {
+        tierEl.textContent = "High Distinction";
+        tierEl.style.color = "#2563eb";
+      } else if (totalScore >= 70) {
+        tierEl.textContent = "Commended Merit";
+        tierEl.style.color = "#d97706";
+      } else {
+        tierEl.textContent = "Candidate";
+        tierEl.style.color = "#64748b";
+      }
+
+      const sName = document.getElementById("studentName")?.value || "—";
+      const sId = document.getElementById("studentId")?.value || "—";
+      const sSchool = document.getElementById("studentSchool")?.value || "—";
+      const selCat = document.querySelector('input[name="nominationCategory"]:checked')?.value || "—";
+
+      document.getElementById("livePreviewName").textContent = sName;
+      document.getElementById("livePreviewId").textContent = sId;
+      document.getElementById("livePreviewSchool").textContent = sSchool;
+      document.getElementById("livePreviewCat").textContent = selCat;
+
+      return totalScore;
+    }
+
+    function populateStep5Review() {
+      const g = (id) => document.getElementById(id)?.value || "—";
+
+      document.getElementById("revNominatorName").textContent = g("nominatorName");
+      document.getElementById("revNominatorRole").textContent = `${g("nominatorRole")} (${g("nominatorSchool")})`;
+      document.getElementById("revNominatorEmail").textContent = g("nominatorEmail");
+
+      document.getElementById("revStudentName").textContent = g("studentName");
+      document.getElementById("revStudentId").textContent = g("studentId");
+      document.getElementById("revStudentCourse").textContent = `${g("studentCourse")} (${g("studentSchool")})`;
+      document.getElementById("revStudentCohort").textContent = `${g("studentYear")} • Class: ${g("studentClassGroup") || "N/A"}`;
+      document.getElementById("revStudentGpa").textContent = `${g("studentGpa")} (Att: ${g("studentAttendance")}%)`;
+
+      const selCat = document.querySelector('input[name="nominationCategory"]:checked')?.value || "Not Selected";
+      document.getElementById("revNomCategory").textContent = selCat;
+
+      document.getElementById("revCcaInfo").textContent = `${g("ccaActivityName")} • Grade: ${g("ccaGrade")} • Role: ${g("ccaLeadershipRole")}`;
+      document.getElementById("revViaHours").textContent = `${g("viaHours") || 0} Hours`;
+
+      const achievements = [];
+      document.querySelectorAll('.checkbox-pill input[type="checkbox"]:checked').forEach(cb => {
+        achievements.push(cb.value);
+      });
+      document.getElementById("revAchievements").textContent = achievements.length > 0 ? achievements.join(", ") : "None specified";
+
+      document.getElementById("revStatement").textContent = g("justificationStatement");
+      document.getElementById("revStrengths").textContent = g("keyStrengths");
+
+      const finalScore = calculateLiveScore();
+      document.getElementById("revTotalScore").textContent = `${finalScore} / 100`;
+    }
+
+    function handleNominationSubmit() {
+      const decCheck = document.getElementById("declarationCheck");
+      if (!decCheck || !decCheck.checked) {
+        showToast("Please acknowledge and check the official declaration before submitting.", "danger");
+        return;
+      }
+
+      const score = calculateLiveScore();
+      const achievements = [];
+      document.querySelectorAll('.checkbox-pill input[type="checkbox"]:checked').forEach(cb => {
+        achievements.push(cb.value);
+      });
+
+      const newNomination = {
+        id: `NOM-2026-${String(nominations.length + 1).padStart(3, '0')}`,
+        nominator: {
+          name: document.getElementById("nominatorName").value.trim(),
+          staffId: document.getElementById("nominatorStaffId").value.trim(),
+          role: document.getElementById("nominatorRole").value,
+          school: document.getElementById("nominatorSchool").value,
+          email: document.getElementById("nominatorEmail").value.trim(),
+          relationship: document.getElementById("nominatorRelationship").value.trim() || "Lecturer / Advisor"
+        },
+        nominee: {
+          name: document.getElementById("studentName").value.trim(),
+          studentId: document.getElementById("studentId").value.trim().toUpperCase(),
+          school: document.getElementById("studentSchool").value,
+          course: document.getElementById("studentCourse").value,
+          year: document.getElementById("studentYear").value,
+          classGroup: document.getElementById("studentClassGroup").value.trim() || "N/A",
+          gpa: parseFloat(document.getElementById("studentGpa").value) || 0,
+          attendance: parseFloat(document.getElementById("studentAttendance").value) || 0
+        },
+        category: document.querySelector('input[name="nominationCategory"]:checked')?.value || "Model Student Award",
+        cca: {
+          activity: document.getElementById("ccaActivityName").value.trim(),
+          grade: document.getElementById("ccaGrade").value,
+          leadership: document.getElementById("ccaLeadershipRole").value,
+          viaHours: parseFloat(document.getElementById("viaHours").value) || 0,
+          achievements: achievements
+        },
+        statement: document.getElementById("justificationStatement").value.trim(),
+        strengths: document.getElementById("keyStrengths").value.trim(),
+        status: "Shortlisted",
+        score: score,
+        submittedAt: new Date().toISOString()
+      };
+
+      nominations.unshift(newNomination);
+      saveNominations();
+
+      showToast(`Nomination for ${newNomination.nominee.name} submitted successfully!`, "success");
+
+      document.getElementById("nominationForm").reset();
+      document.getElementById("declarationCheck").checked = false;
+      document.querySelectorAll('.category-radio-card').forEach(c => c.classList.remove('selected'));
+      goToStep(1);
+      calculateLiveScore();
+
+      document.querySelector('.nav-tab-btn[data-target="dashboard-view"]')?.click();
+    }
+
+    function setupDashboardControls() {
+      document.getElementById("dashboardSearch")?.addEventListener("input", renderNominationsTable);
+      document.getElementById("filterSchool")?.addEventListener("change", renderNominationsTable);
+      document.getElementById("filterCategory")?.addEventListener("change", renderNominationsTable);
+      document.getElementById("filterStatus")?.addEventListener("change", renderNominationsTable);
+
+      document.getElementById("btnExportCsv")?.addEventListener("click", exportToCsv);
+      document.getElementById("btnExportJson")?.addEventListener("click", exportToJson);
+      document.getElementById("btnResetSeedData")?.addEventListener("click", () => {
+        if (confirm("Reset nominations to initial sample records? Any newly added data will be overwritten.")) {
+          nominations = [...INITIAL_SEED_DATA];
+          saveNominations();
+          renderNominationsTable();
+          showToast("Sample nomination records reloaded.", "info");
+        }
+      });
+
+      const modalBackdrop = document.getElementById("dossierModal");
+      document.getElementById("closeModalBtn")?.addEventListener("click", closeModal);
+      document.getElementById("modalCloseFooter")?.addEventListener("click", closeModal);
+      modalBackdrop?.addEventListener("click", (e) => {
+        if (e.target === modalBackdrop) closeModal();
+      });
+      document.getElementById("modalPrintBtn")?.addEventListener("click", () => {
+        window.print();
+      });
+    }
+
+    function renderNominationsTable() {
+      const tbody = document.getElementById("nominationsTableBody");
+      if (!tbody) return;
+
+      const searchTerm = (document.getElementById("dashboardSearch")?.value || "").toLowerCase().trim();
+      const schoolFilter = document.getElementById("filterSchool")?.value || "";
+      const catFilter = document.getElementById("filterCategory")?.value || "";
+      const statusFilter = document.getElementById("filterStatus")?.value || "";
+
+      const filtered = nominations.filter(item => {
+        const matchSearch =
+          item.nominee.name.toLowerCase().includes(searchTerm) ||
+          item.nominee.studentId.toLowerCase().includes(searchTerm) ||
+          item.nominee.course.toLowerCase().includes(searchTerm) ||
+          item.nominator.name.toLowerCase().includes(searchTerm);
+
+        const matchSchool = !schoolFilter || item.nominee.school === schoolFilter;
+        const matchCat = !catFilter || item.category === catFilter;
+        const matchStatus = !statusFilter || item.status === statusFilter;
+
+        return matchSearch && matchSchool && matchCat && matchStatus;
+      });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="7">
+              <div class="empty-state">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <p style="font-weight:600; color:var(--text-main);">No student nominations found</p>
+                <p style="font-size:0.82rem; margin-top:0.3rem;">Try clearing the search filter or submit a new nomination.</p>
+              </div>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(nom => {
+        const schoolClass = `school-${nom.nominee.school.toLowerCase()}`;
+        const initials = nom.nominee.name.split(" ").map(n => n[0]).slice(0, 2).join("").toUpperCase();
+
+        let statusBadgeClass = "status-pending";
+        if (nom.status === "Shortlisted") statusBadgeClass = "status-shortlisted";
+        if (nom.status === "Endorsed") statusBadgeClass = "status-endorsed";
+
+        return `
+          <tr>
+            <td>
+              <div class="student-cell">
+                <div class="student-avatar">${initials}</div>
+                <div>
+                  <span class="student-name">${escapeHtml(nom.nominee.name)}</span>
+                  <span class="student-sub">ID: ${escapeHtml(nom.nominee.studentId)} • ${escapeHtml(nom.nominee.year)}</span>
+                </div>
+              </div>
+            </td>
+            <td>
+              <span class="school-tag ${schoolClass}">${escapeHtml(nom.nominee.school)}</span>
+              <div style="font-size:0.75rem; color:var(--text-muted); margin-top:3px;">
+                ${escapeHtml(nom.nominee.course)}
+              </div>
+            </td>
+            <td>
+              <strong style="color:var(--primary);">${nom.nominee.gpa.toFixed(2)}</strong>
+              <span style="font-size:0.75rem; color:var(--text-muted);"> / 4.00</span>
+              <div style="font-size:0.72rem; color:var(--text-muted);">${nom.nominee.attendance}% Att.</div>
+            </td>
+            <td>
+              <span style="font-weight:600; font-size:0.82rem;">${escapeHtml(nom.category)}</span>
+            </td>
+            <td>
+              <div style="display:flex; align-items:center; gap:6px;">
+                <strong style="font-size:1.05rem; color:var(--ite-red);">${nom.score}</strong>
+                <span style="font-size:0.72rem; color:var(--text-muted);">/100</span>
+              </div>
+            </td>
+            <td>
+              <span class="status-badge ${statusBadgeClass}">${escapeHtml(nom.status)}</span>
+            </td>
+            <td>
+              <div class="table-actions">
+                <button class="table-action-btn" onclick="viewNominationDossier('${nom.id}')" title="View Full Dossier">
+                  View
+                </button>
+                <button class="table-action-btn" onclick="cycleStatus('${nom.id}')" title="Toggle Status">
+                  Status
+                </button>
+                <button class="table-action-btn delete-btn" onclick="deleteNomination('${nom.id}')" title="Delete">
+                  Delete
+                </button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    window.viewNominationDossier = function(id) {
+      const nom = nominations.find(n => n.id === id);
+      if (!nom) return;
+
+      const contentEl = document.getElementById("modalDossierContent");
+      if (!contentEl) return;
+
+      const achievementsList = nom.cca.achievements && nom.cca.achievements.length > 0
+        ? nom.cca.achievements.map(a => `<li>${escapeHtml(a)}</li>`).join("")
+        : "<li>None recorded</li>";
+
+      contentEl.innerHTML = `
+        <div style="border-bottom: 2px solid var(--primary); padding-bottom: 1rem; margin-bottom: 1.25rem;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+            <div>
+              <span style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.5px; color:var(--ite-red); font-weight:700;">
+                ITE College West • Official Nomination Dossier
+              </span>
+              <h2 style="font-size:1.5rem; color:var(--primary); font-weight:800; margin-top:2px;">
+                ${escapeHtml(nom.nominee.name)}
+              </h2>
+              <p style="font-size:0.85rem; color:var(--text-muted);">
+                Student ID: <strong>${escapeHtml(nom.nominee.studentId)}</strong> • ${escapeHtml(nom.nominee.course)} (${escapeHtml(nom.nominee.school)})
+              </p>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:1.75rem; font-weight:800; color:var(--ite-red);">${nom.score} <span style="font-size:0.8rem; color:var(--text-muted);">/ 100</span></div>
+              <span class="status-badge status-${nom.status.toLowerCase().replace(' ', '-')}">${nom.status}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dossier-section">
+          <div class="dossier-title">1. Award Category & Academic Standing</div>
+          <div class="dossier-grid">
+            <div class="dossier-item">
+              <div class="d-label">Award Category</div>
+              <div class="d-value">${escapeHtml(nom.category)}</div>
+            </div>
+            <div class="dossier-item">
+              <div class="d-label">Cumulative GPA</div>
+              <div class="d-value">${nom.nominee.gpa.toFixed(2)} / 4.00</div>
+            </div>
+            <div class="dossier-item">
+              <div class="d-label">Attendance Rate</div>
+              <div class="d-value">${nom.nominee.attendance}%</div>
+            </div>
+            <div class="dossier-item">
+              <div class="d-label">Cohort & Class</div>
+              <div class="d-value">${escapeHtml(nom.nominee.year)} • ${escapeHtml(nom.nominee.classGroup)}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dossier-section">
+          <div class="dossier-title">2. Co-Curricular & Community Contributions</div>
+          <div class="dossier-grid">
+            <div class="dossier-item">
+              <div class="d-label">Primary CCA</div>
+              <div class="d-value">${escapeHtml(nom.cca.activity)}</div>
+            </div>
+            <div class="dossier-item">
+              <div class="d-label">CCA Grade & Role</div>
+              <div class="d-value">Grade ${escapeHtml(nom.cca.grade)} • ${escapeHtml(nom.cca.leadership)}</div>
+            </div>
+            <div class="dossier-item">
+              <div class="d-label">VIA Community Hours</div>
+              <div class="d-value">${nom.cca.viaHours} Hours</div>
+            </div>
+          </div>
+          <div style="margin-top:0.75rem;">
+            <div class="d-label" style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; margin-bottom:4px;">Recognized Honors & Activities</div>
+            <ul style="padding-left:1.25rem; font-size:0.85rem; color:var(--text-main);">
+              ${achievementsList}
+            </ul>
+          </div>
+        </div>
+
+        <div class="dossier-section">
+          <div class="dossier-title">3. Character Evaluation & Justification</div>
+          <div style="background:#f8fafc; padding:0.9rem; border-radius:var(--radius-md); border-left:3px solid var(--accent); margin-bottom:0.75rem;">
+            <div class="d-label">Detailed Nomination Testimonial</div>
+            <p style="font-size:0.88rem; line-height:1.5; color:var(--text-main); margin-top:0.25rem;">
+              ${escapeHtml(nom.statement)}
+            </p>
+          </div>
+          <div class="dossier-item">
+            <div class="d-label">Notable Character Strengths</div>
+            <div class="d-value" style="font-weight:500;">${escapeHtml(nom.strengths)}</div>
+          </div>
+        </div>
+
+        <div class="dossier-section">
+          <div class="dossier-title">4. Nominator Endorsement</div>
+          <div class="dossier-grid">
+            <div class="dossier-item">
+              <div class="d-label">Nominator Name</div>
+              <div class="d-value">${escapeHtml(nom.nominator.name)}</div>
+            </div>
+            <div class="dossier-item">
+              <div class="d-label">Staff ID & School</div>
+              <div class="d-value">${escapeHtml(nom.nominator.staffId)} • ${escapeHtml(nom.nominator.school)}</div>
+            </div>
+            <div class="dossier-item">
+              <div class="d-label">Designation</div>
+              <div class="d-value">${escapeHtml(nom.nominator.role)}</div>
+            </div>
+            <div class="dossier-item">
+              <div class="d-label">Official Email</div>
+              <div class="d-value">${escapeHtml(nom.nominator.email)}</div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      document.getElementById("dossierModal").classList.add("active");
+    };
+
+    function closeModal() {
+      document.getElementById("dossierModal").classList.remove("active");
+    }
+
+    window.cycleStatus = function(id) {
+      const nom = nominations.find(n => n.id === id);
+      if (!nom) return;
+
+      const cycle = ["Pending Review", "Shortlisted", "Endorsed"];
+      const nextIdx = (cycle.indexOf(nom.status) + 1) % cycle.length;
+      nom.status = cycle[nextIdx];
+
+      saveNominations();
+      renderNominationsTable();
+      showToast(`Updated status for ${nom.nominee.name} to "${nom.status}"`, "info");
+    };
+
+    window.deleteNomination = function(id) {
+      const nom = nominations.find(n => n.id === id);
+      if (!nom) return;
+
+      if (confirm(`Are you sure you want to remove the nomination for ${nom.nominee.name}?`)) {
+        nominations = nominations.filter(n => n.id !== id);
+        saveNominations();
+        renderNominationsTable();
+        showToast("Nomination deleted.", "info");
+      }
+    };
+
+    function updateTopKpis() {
+      const totalCountEl = document.getElementById("kpiTotalNominees");
+      const shortlistedEl = document.getElementById("kpiShortlisted");
+      const navBadgeEl = document.getElementById("navNomineeCount");
+
+      if (totalCountEl) totalCountEl.textContent = nominations.length;
+      if (shortlistedEl) {
+        const count = nominations.filter(n => n.status === "Shortlisted" || n.status === "Endorsed").length;
+        shortlistedEl.textContent = count;
+      }
+      if (navBadgeEl) navBadgeEl.textContent = nominations.length;
+    }
+
+    function exportToCsv() {
+      if (nominations.length === 0) {
+        showToast("No nominations available to export.", "danger");
+        return;
+      }
+
+      const headers = [
+        "Nomination ID",
+        "Student Name",
+        "Student ID",
+        "School",
+        "Course",
+        "Year",
+        "GPA",
+        "Attendance (%)",
+        "Category",
+        "Score",
+        "Status",
+        "CCA Activity",
+        "CCA Grade",
+        "Leadership Role",
+        "VIA Hours",
+        "Nominator Name",
+        "Nominator Email",
+        "Submitted Date"
+      ];
+
+      const rows = nominations.map(n => [
+        n.id,
+        `"${n.nominee.name.replace(/"/g, '""')}"`,
+        n.nominee.studentId,
+        n.nominee.school,
+        `"${n.nominee.course.replace(/"/g, '""')}"`,
+        n.nominee.year,
+        n.nominee.gpa.toFixed(2),
+        n.nominee.attendance,
+        `"${n.category.replace(/"/g, '""')}"`,
+        n.score,
+        n.status,
+        `"${n.cca.activity.replace(/"/g, '""')}"`,
+        n.cca.grade,
+        `"${n.cca.leadership.replace(/"/g, '""')}"`,
+        n.cca.viaHours,
+        `"${n.nominator.name.replace(/"/g, '""')}"`,
+        n.nominator.email,
+        n.submittedAt.split("T")[0]
+      ]);
+
+      const csvContent = [headers.join(","), ...rows.map(r => r.join(","))].join("\n");
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `ITE_College_West_Best_Student_Nominations_${new Date().toISOString().slice(0,10)}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast("CSV export file generated.", "success");
+    }
+
+    function exportToJson() {
+      const blob = new Blob([JSON.stringify(nominations, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `ITE_College_West_Nominations_${new Date().toISOString().slice(0,10)}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast("JSON export generated.", "success");
+    }
+
+    function showToast(message, type = "info") {
+      const container = document.getElementById("toastContainer");
+      if (!container) return;
+
+      const toast = document.createElement("div");
+      toast.className = `toast toast-${type}`;
+      toast.innerHTML = `<span>${escapeHtml(message)}</span>`;
+      container.appendChild(toast);
+
+      setTimeout(() => {
+        toast.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+        toast.style.opacity = "0";
+        toast.style.transform = "translateX(100%)";
+        setTimeout(() => toast.remove(), 300);
+      }, 3500);
+    }
+
+    function escapeHtml(str) {
+      if (typeof str !== "string") return str;
+      return str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+  </script>
+</body>
+</html>
